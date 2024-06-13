@@ -85,7 +85,8 @@ export class OrdListing extends SmartContract {
         const s = OrdListing.Gx + shPreimage._e + toByteString('02')
         assert(this.checkSig(Sig(s), PubKey(OrdListing.Gx)))
         const sigHash = sha256(
-            shPreimage.txVer +
+            OrdListing.preimagePrefix +
+                shPreimage.txVer +
                 shPreimage.nLockTime +
                 shPreimage.hashPrevouts +
                 shPreimage.hashSpentAmounts +
